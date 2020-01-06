@@ -1,5 +1,5 @@
 (function(global, factory) {
-  typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define([ "exports" ], factory) : (global = global || self, 
+  typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define([ "exports" ], factory) : (global = global || self,
   factory(global.ActiveStorage = {}));
 })(this, function(exports) {
   "use strict";
@@ -549,14 +549,13 @@
       var _this = this;
       classCallCheck(this, BlobRecord);
       this.file = file;
+
       this.attributes = {
         filename: file.name,
+        content_type: null,
         byte_size: file.size,
         checksum: checksum
       };
-      if (file.type.length) {
-        this.attributes.content_type = file.type;
-      }
       this.xhr = new XMLHttpRequest();
       this.xhr.open("POST", url, true);
       this.xhr.responseType = "json";
