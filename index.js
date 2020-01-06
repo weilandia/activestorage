@@ -1,5 +1,5 @@
 (function(global, factory) {
-  typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define([ "exports" ], factory) : (global = global || self,
+  typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define([ "exports" ], factory) : (global = global || self, 
   factory(global.ActiveStorage = {}));
 })(this, function(exports) {
   "use strict";
@@ -637,9 +637,7 @@
       this.xhr.open("PUT", url, true);
       this.xhr.responseType = "text";
       for (var key in headers) {
-        console.log([key, headers[key]])
-        if (!headers[key]) continue;
-        this.xhr.setRequestHeader(key, headers[key]);
+        this.xhr.setRequestHeader(key, headers[key] || null);
       }
       this.xhr.addEventListener("load", function(event) {
         return _this.requestDidLoad(event);
