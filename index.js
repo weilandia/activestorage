@@ -552,7 +552,6 @@
 
       this.attributes = {
         filename: file.name,
-        content_type: null,
         byte_size: file.size,
         checksum: checksum
       };
