@@ -549,13 +549,14 @@
       var _this = this;
       classCallCheck(this, BlobRecord);
       this.file = file;
-      var contentType = file.type.length ? file.type : null;
       this.attributes = {
         filename: file.name,
-        content_type: contentType,
         byte_size: file.size,
         checksum: checksum
       };
+      if (file.type.length) {
+        this.attributes.content_type = file.type;
+      }
       this.xhr = new XMLHttpRequest();
       this.xhr.open("POST", url, true);
       this.xhr.responseType = "json";
