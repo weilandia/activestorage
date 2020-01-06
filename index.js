@@ -637,7 +637,7 @@
       this.xhr.open("PUT", url, true);
       this.xhr.responseType = "text";
       for (var key in headers) {
-        this.xhr.setRequestHeader(key, headers[key] || null);
+        this.xhr.setRequestHeader(key, headers[key] || undefined);
       }
       this.xhr.addEventListener("load", function(event) {
         return _this.requestDidLoad(event);
